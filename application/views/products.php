@@ -8,7 +8,7 @@
 
 <h1>Products</h1>
 
-<a href="products/new">New Product</a>
+<a href="/products/new">New Product</a>
 
 </body>
 </html>

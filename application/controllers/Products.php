@@ -34,7 +34,20 @@ class Products extends CI_Controller {
 //            'name' => $name,
 //            'price' => $price
 //        );
-        $this->session->set_userdata($this->input->post());
-        redirect('products');
+        if(strlen($this->input->post('name')) < 2) {
+            $this->session->set_flashdata('name', 'Name is too short');
+            redirect('/products/new');
+            exit();
+        }
+        $this->Product->save_product($this->input->post());
+        redirect('/products/finished');
+    }
+    public function finished_product()
+    {
+        $product_information = array(
+            'name' => $this->session->userdata('name'),
+            'price' => $this->session->userdata('price')
+        );
+        $this->load->view("finished_product", $product_information);
     }
 }
