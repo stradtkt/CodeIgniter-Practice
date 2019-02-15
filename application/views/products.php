@@ -13,6 +13,9 @@
         <tr>
             <th>Name</th>
             <th>Price</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +23,13 @@
             <tr>
                 <td><?= $product['name'] ?></td>
                 <td><?= $product['price'] ?></td>
+                <td><?= $product['created_at'] ?></td>
+                <td><?= $product['updated_at'] ?></td>
+                <td>
+                    <span><a href="">Show</a></span>
+                    <span><a href="/products/edit/<?= $product['id'] ?>">Edit</a></span>
+                    <span><a href="">Delete</a></span>
+                </td>
             </tr>
         <?php } ?>
     </tbody>

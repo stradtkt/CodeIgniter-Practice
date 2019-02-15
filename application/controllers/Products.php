@@ -38,4 +38,10 @@ class Products extends CI_Controller {
         );
         $this->load->view("finished_product", $product_information);
     }
+
+    public function edit_product($id)
+    {
+        $the_product = $this->product->get_product($id);
+        $this->load->view('edit_product', array('product' => $the_product));
+    }
 }

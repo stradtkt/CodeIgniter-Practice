@@ -16,4 +16,9 @@ class Products extends CI_Model {
         $products = $this->db->query("SELECT * FROM products")->result_array();
         return $products;
     }
+    public function get_product($id)
+    {
+        $product = $this->db->query("SELECT * FROM products WHERE id = {$id}")->row_array();
+        return $product;
+    }
 }
