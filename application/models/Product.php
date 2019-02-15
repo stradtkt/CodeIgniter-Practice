@@ -8,6 +8,12 @@ class Products extends CI_Model {
         $query = "INSERT INTO products (name, price, created_at, updated_at) VALUES (?, ?, NOW(), NOW())";
         $data = array($product_info['name'], $product_info['price']);
 
-        $this->db->query($query, $data);
+        $results = $this->db->query($query, $data);
+        return $results;
+    }
+    public function get_products()
+    {
+        $products = $this->db->query("SELECT * FROM products")->result_array();
+        return $products;
     }
 }

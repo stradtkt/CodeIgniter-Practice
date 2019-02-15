@@ -5,7 +5,8 @@ class Products extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('products');
+        $all_products = $this->product->get_products();
+        $this->load->view('products', array('all_products' => $all_products));
     }
     public function new_product()
     {
@@ -24,7 +25,9 @@ class Products extends CI_Controller {
             redirect('/products/new');
             exit();
         }
-        $this->product->save_product($this->input->post());
+        if($this->product->save_product($this->input->post())) {
+
+        }
         redirect('/products/finished');
     }
     public function finished_product()
